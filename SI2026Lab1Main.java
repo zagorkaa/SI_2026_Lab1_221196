@@ -14,25 +14,11 @@ class Book {
         this.borrowed = false;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public boolean isBorrowed() {
-        return borrowed;
-    }
-
-    public void setBorrowed(boolean borrowed) {
-        this.borrowed = borrowed;
-    }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public String getGenre() { return genre; }
+    public boolean isBorrowed() { return borrowed; }
+    public void setBorrowed(boolean borrowed) { this.borrowed = borrowed; }
 
     @Override
     public String toString() {
@@ -43,27 +29,17 @@ class Book {
 class Library {
     private List<Book> books;
 
-    public Library() {
-        books = new ArrayList<>();
-    }
+    public Library() { books = new ArrayList<>(); }
 
-    public void addBook(Book book) {
-        books.add(book);
-    }
+    public void addBook(Book book) { books.add(book); }
 
-    // TODO: Implement in branch feature-search-books
     public boolean searchBookByTitle(String title) {
-
         for (Book book : books) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                return true;
-            }
+            if (book.getTitle().equalsIgnoreCase(title)) return true;
         }
         return false;
-
     }
 
-    // TODO: Implement in branch feature-borrow-book
     public void borrowBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title)) {
@@ -94,25 +70,25 @@ class Library {
         System.out.println("Book not found.");
     }
 
-    // TODO: Implement in branch feature-genre-report
     public void printBooksByGenre(String genre) {
+        for (Book book : books) {
+            if (book.getGenre().equalsIgnoreCase(genre)) {
+                System.out.println(book);
+            }
+        }
     }
 
     public int countAvailableBooks() {
         int count = 0;
         for (Book book : books) {
-            if (!book.isBorrowed()) {
-                count++;
-            }
+            if (!book.isBorrowed()) count++;
         }
         return count;
     }
 
     public void printBorrowedBooks() {
         for (Book book : books) {
-            if (book.isBorrowed()) {
-                System.out.println(book);
-            }
+            if (book.isBorrowed()) System.out.println(book);
         }
     }
 }
@@ -130,5 +106,12 @@ public class SI2026Lab1Main {
 
         System.out.println(library.searchBookByTitle("Clean Code"));
         System.out.println(library.searchBookByTitle("Unknown Book"));
+
+        library.borrowBook("The Hobbit");
+        library.borrowBook("The Hobbit");
+        library.borrowBook("Unknown Book");
+
+        library.printBooksByGenre("Programming");
+        library.printBooksByGenre("Fantasy");
     }
 }
