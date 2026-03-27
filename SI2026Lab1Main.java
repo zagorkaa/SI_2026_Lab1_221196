@@ -125,7 +125,6 @@ class Library {
 public class SI2026Lab1Main {
     public static void main(String[] args) {
         Library library = new Library();
-
         library.addBook(new Book("Clean Code", "Robert C. Martin", "Programming"));
         library.addBook(new Book("Effective Java", "Joshua Bloch", "Programming"));
         library.addBook(new Book("The Hobbit", "J.R.R. Tolkien", "Fantasy"));
@@ -135,6 +134,10 @@ public class SI2026Lab1Main {
 
         System.out.println(library.searchBookByTitle("Clean Code"));
         System.out.println(library.searchBookByTitle("Unknown Book"));
+
+        library.borrowBook("The Hobbit");
+        library.borrowBook("The Hobbit");
+        library.borrowBook("Unknown Book");
 
         library.printBooksByGenre("Programming");
         library.printBooksByGenre("Fantasy");
