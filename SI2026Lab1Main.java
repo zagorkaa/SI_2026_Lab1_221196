@@ -134,11 +134,9 @@ public class SI2026Lab1Main {
 
         System.out.println(library.searchBookByTitle("Clean Code"));
         System.out.println(library.searchBookByTitle("Unknown Book"));
-
         library.borrowBook("The Hobbit");
         library.borrowBook("The Hobbit");
         library.borrowBook("Unknown Book");
-
         library.printBooksByGenre("Programming");
         library.printBooksByGenre("Fantasy");
     }
