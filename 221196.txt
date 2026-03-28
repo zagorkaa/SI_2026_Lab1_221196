@@ -1,0 +1,48 @@
+4. git init - команда со која  се иницијализира Git во директориумот
+5. git remote add origin https://github.com/zagorkaa/SI_2026_Lab1_221196.git - команда со која која го поврзувам локалниот  репозиториум со оддалечениот репозиториум.
+6. git add README.md - команда со која README.md го ставам во staging фаза
+ git commit -m "Initial commit" - команда со која правам комитирање
+7. git add SI2026Lab1Main.java - команда со која README.md го ставам во staging фаза
+ git commit -m "Add starter code" - команда со која правам комитирање
+
+8. git push origin master - прикачување на кодот на оддалечениот репозиториум
+9. git checkout -b  feature-search-books - со git -b ( што е скратено од branch ) креираме нова гранка а со git checkout се префрламе на новокреираната гранка
+10. git add SI2026Lab1Main.java - команда со која ги додаваме измените во staging фаза
+git commit -m "Implement book search" - команда со која правам комитирање
+11. git push -u origin feature-search-books - синхронизација на гранката со оддалечениот репозиториум
+12. git checkout master - со помош на checkout може да се префрлам од една гранка на друга. Checkout го придвижува head кој што е поинтер кој ни покажува на која гранка се наоѓаме.
+git merge feature-search-books - со оваа команда ги споив двете гранки локално
+
+13. Спојувањето е fast-forward бидејќи master немаше нови комити одкако гранката feature-search-books беше креирана.
+Излез од  git log --oneline --graph --all :
+* 6955110 (HEAD -> master, origin/feature-search-books, feature-search-books) Implement book search
+* 41cccd2 (origin/master, origin/main) Add starter code
+* fdef827 Initial commit
+14. git push origin master - прикачување на кодот на оддалечениот репозиториум
+15. git branch feature-borrow-book и git branch feature-genre-report - ги креираат новите гранки
+16. git checkout feature-borrow-book
+git add SI2026Lab1Main.java
+git commit -m "Implement borrow book"
+17. git checkout master
+git add SI2026Lab1Main.java
+git commit -m "Update borrow message on master"
+18. git checkout feature-genre-report
+git add SI2026Lab1Main.java
+git commit -m "Implement genre report"
+19. git checkout feature-borrow-book
+git push -u origin feature-borrow-book
+20.git checkout feature-genre-report
+git push -u origin feature-genre-report
+21.git checkout feature-borrow-book
+git merge master
+22. При спојувањето не настанаа конфликти. Користев Fast-forward стратегија бидејќи feature-borrow-book немаше нови commits.
+Излез од git status по завршување на merge-от:
+On branch feature-borrow-book
+Your branch is ahead of 'origin/feature-borrow-book' by 4 commits.
+  (use "git push" to publish your local commits)
+nothing to commit, working tree clean
+23.  git merge feature-genre-report
+git push origin master
+При локалното спојување не настана конфликт. Спојувањето беше recursive бидејќи и master и feature-genre-report имаат свои commits откако се разделиле, Git мораше да создаде нов merge commit за да ги спои промените. 
+24. Already up to date — не беше потребно спојување бидејќи сите промени од feature-borrow-book веќе беа присутни во master (биле внесени преку претходните merge-ови). Не настана ниту Fast-forward ниту Recursive merge.
+25. git push origin master
